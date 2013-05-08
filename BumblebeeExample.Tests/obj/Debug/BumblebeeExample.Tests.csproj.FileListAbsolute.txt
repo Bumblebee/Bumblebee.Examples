@@ -15,3 +15,6 @@ c:\users\patrick.herrmann\documents\visual studio 2012\Projects\BumblebeeExample
 c:\users\patrick.herrmann\documents\visual studio 2012\Projects\BumblebeeExample\BumblebeeExample.Tests\obj\Debug\BumblebeeExample.Tests.csprojResolveAssemblyReference.cache
 c:\users\patrick.herrmann\documents\visual studio 2012\Projects\BumblebeeExample\BumblebeeExample.Tests\obj\Debug\BumblebeeExample.Tests.dll
 c:\users\patrick.herrmann\documents\visual studio 2012\Projects\BumblebeeExample\BumblebeeExample.Tests\obj\Debug\BumblebeeExample.Tests.pdb
+c:\users\patrick.herrmann\documents\visual studio 2012\Projects\BumblebeeExample\BumblebeeExample.Tests\bin\Debug\MbUnit.dll
+c:\users\patrick.herrmann\documents\visual studio 2012\Projects\BumblebeeExample\BumblebeeExample.Tests\bin\Debug\NHamcrest.dll
+c:\users\patrick.herrmann\documents\visual studio 2012\Projects\BumblebeeExample\BumblebeeExample.Tests\bin\Debug\NHamcrest.pdb
