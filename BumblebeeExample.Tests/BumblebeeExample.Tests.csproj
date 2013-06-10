@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FacebookTests.cs" />
+    <Compile Include="LocalChromeEnvironment.cs" />
     <Compile Include="LocalFirefoxEnvironment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestSuite.cs" />

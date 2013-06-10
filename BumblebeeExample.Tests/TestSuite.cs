@@ -18,8 +18,8 @@ namespace BumblebeeExample.Tests
         [SetUp]
         public virtual void SetUp()
         {
-            Session = new Session(new LocalFirefoxEnvironment());
-            Session.NavigateTo<WebBlock>("http://www.facebook.com");
+            Session = new Session(new LocalChromeEnvironment());
+            Session.NavigateTo<SignInPage>("http://www.facebook.com");
         }
 
         [TearDown]

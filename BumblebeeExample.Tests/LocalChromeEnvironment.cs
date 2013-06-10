@@ -1,17 +1,17 @@
 ﻿using System;
 using Bumblebee.Setup;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Chrome;
 
 namespace BumblebeeExample.Tests
 {
-    public class LocalFirefoxEnvironment : IDriverEnvironment
+    public class LocalChromeEnvironment : IDriverEnvironment
     {
         public IWebDriver CreateWebDriver()
         {
-            var driver = new FirefoxDriver();
-            driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(2000));
+            var driver = new ChromeDriver(@"C:\SeGrid");
             driver.Manage().Window.Maximize();
+            driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(5000));
             return driver;
         }
     }
