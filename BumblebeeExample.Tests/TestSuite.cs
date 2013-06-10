@@ -19,7 +19,7 @@ namespace BumblebeeExample.Tests
         public virtual void SetUp()
         {
             Session = new Session(new LocalFirefoxEnvironment());
-            Session.NavigateTo<SignInPage>("http://mail.google.com");
+            Session.NavigateTo<WebBlock>("http://www.facebook.com");
         }
 
         [TearDown]

@@ -62,10 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AriaCheckbox.cs" />
-    <Compile Include="GmailPage.cs" />
-    <Compile Include="InboxRow.cs" />
-    <Compile Include="LoginPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebBlock.cs" />
   </ItemGroup>
