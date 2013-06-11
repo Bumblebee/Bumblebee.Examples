@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BumblebeeExample.Pages", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BumblebeeExample.Tests", "BumblebeeExample.Tests\BumblebeeExample.Tests.csproj", "{DA04D0B9-A03B-4C2F-B087-F6D7BC777510}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BumblebeeExample.MobilePages", "BumblebeeExample.MobilePages\BumblebeeExample.MobilePages.csproj", "{B778767C-07B2-477C-8EFD-516A8D4FD4E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{DA04D0B9-A03B-4C2F-B087-F6D7BC777510}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA04D0B9-A03B-4C2F-B087-F6D7BC777510}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA04D0B9-A03B-4C2F-B087-F6D7BC777510}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B778767C-07B2-477C-8EFD-516A8D4FD4E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B778767C-07B2-477C-8EFD-516A8D4FD4E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B778767C-07B2-477C-8EFD-516A8D4FD4E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B778767C-07B2-477C-8EFD-516A8D4FD4E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
