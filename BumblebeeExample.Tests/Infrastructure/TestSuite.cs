@@ -2,7 +2,7 @@
 using Bumblebee.Setup;
 using MbUnit.Framework;
 
-namespace BumblebeeExample.Tests
+namespace BumblebeeExample.Tests.Infrastructure
 {
     public abstract class TestSuite
     {

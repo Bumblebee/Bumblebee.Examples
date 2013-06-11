@@ -13,7 +13,7 @@ namespace BumblebeeExample
 
         public WebBlock(Session session) : base(session)
         {
-            this.Pause(500);
+            this.Pause(200);
             Wait = new WebDriverWait(Session.Driver, new TimeSpan(3000));
             Tag = Wait.Until(driver => driver.GetElement(By.TagName("body")));
         }
