@@ -62,7 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FacebookTests.cs" />
+    <Compile Include="RedditTests.cs" />
     <Compile Include="LocalChromeEnvironment.cs" />
     <Compile Include="LocalFirefoxEnvironment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
