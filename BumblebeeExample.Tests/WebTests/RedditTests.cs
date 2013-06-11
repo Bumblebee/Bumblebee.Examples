@@ -16,7 +16,7 @@ namespace BumblebeeExample.Tests.WebTests
         }
 
         [Test]
-        public void LogIn()
+        public void Login()
         {
             Session.CurrentBlock<LoggedOutPage>()
                    .LoginArea
@@ -47,7 +47,7 @@ namespace BumblebeeExample.Tests.WebTests
         }
 
         [Test]
-        public void HitRandomSubreddit()
+        public void ShowPostsFromRandomSubreddit()
         {
             string sub;
             Session.CurrentBlock<LoggedOutPage>()
