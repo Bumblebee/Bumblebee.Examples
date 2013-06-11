@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using Bumblebee.Setup;
 using MbUnit.Framework;
 
@@ -19,7 +18,7 @@ namespace BumblebeeExample.Tests
         public virtual void SetUp()
         {
             Session = new Session(new LocalChromeEnvironment());
-            Session.NavigateTo<SignInPage>("http://www.facebook.com");
+            Session.NavigateTo<RedditPage>("http://www.reddit.com");
         }
 
         [TearDown]
