@@ -65,6 +65,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MobileTests\Attributes\Metadata.cs" />
+    <Compile Include="MobileTests\Attributes\MonkeyTestAttribute.cs" />
+    <Compile Include="MobileTests\LoggedInTestSuite.cs" />
+    <Compile Include="MobileTests\MobileSession.cs" />
+    <Compile Include="MobileTests\MobileTestSuite.cs" />
+    <Compile Include="MobileTests\RedditMobileTests.cs" />
     <Compile Include="RedditTests.cs" />
     <Compile Include="LocalChromeEnvironment.cs" />
     <Compile Include="LocalFirefoxEnvironment.cs" />

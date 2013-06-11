@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bumblebee.Exceptions;
 using Bumblebee.Interfaces;
 using Bumblebee.Setup;
 using Bumblebee.Extensions;
@@ -36,10 +37,16 @@ namespace BumblebeeExample.MobilePages.TabController
         {
             GetElement(ByIOS.Name("Login")).Click();
 
+            bool isValid = true;
+
             try
             {
                 Session.Driver.SwitchTo().Alert();
+                isValid = false;
             } catch {}
+
+            if(!isValid)
+                throw new VerificationException("Invalid Login Credentials");
 
             return new SettingsView(Session);
         } 
