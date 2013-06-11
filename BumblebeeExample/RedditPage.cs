@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Bumblebee.Implementation;
 using Bumblebee.Interfaces;
 using Bumblebee.Setup;
@@ -14,12 +11,48 @@ namespace BumblebeeExample
     {
         public RedditPage(Session session) : base(session)
         {
-            Tag = GetElement(By.Id("siteTable"));
         }
 
         public IEnumerable<Post> Posts
         {
-            get { return GetElements(By.ClassName("entry")).Select(tag => new Post(Session, tag)); }
+            get
+            {
+                return GetElements(By.CssSelector("#siteTable .entry")).Select(tag => new Post(Session, tag));
+            }
+        }
+
+        public IClickable<RedditPage> Next
+        {
+            get { return new Clickable<RedditPage>(this, By.ClassName("next")); }
+        }
+
+        public IClickable<RedditPage> Prev
+        {
+            get { return new Clickable<RedditPage>(this, By.ClassName("prev")); }
+        }
+    }
+
+    public class LoggedOutPage : RedditPage
+    {
+        public LoggedOutPage(Session session) : base(session)
+        {
+        }
+
+        public IClickable<LoginOrRegisterPopover> LoginOrRegister
+        {
+            get { return new Clickable<LoginOrRegisterPopover>(this, By.CssSelector(".user a")); }
+        }
+    }
+
+    public class LoggedInPage : RedditPage
+    {
+        public LoggedInPage(Session session) : base(session)
+        {
+        }
+
+        public IClickable<WebBlock> Profile
+        {
+            get { return new Clickable<LoginOrRegisterPopover>(this, By.CssSelector(".user a")); }
         }
     }
 

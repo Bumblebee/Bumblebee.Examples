@@ -10,7 +10,12 @@ namespace BumblebeeExample.Tests
         [Test]
         public void DoStuff()
         {
-            Session.CurrentBlock<RedditPage>()
+            Session.CurrentBlock<LoggedOutPage>()
+                   .LoginOrRegister.Click()
+                   .LoginForm
+                   .Email.EnterText("bumblebeeexample")
+                   .Password.EnterText("123abc!!")
+                   .LoginButton.Click<LoggedInPage>()
                    .Posts.Skip(2).Take(5).Random().Title.Click();
         }
     }

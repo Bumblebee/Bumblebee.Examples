@@ -1,9 +1,7 @@
-﻿using System;
-using Bumblebee.Extensions;
+﻿using Bumblebee.Extensions;
 using Bumblebee.Implementation;
 using Bumblebee.Setup;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 
 namespace BumblebeeExample
 {
