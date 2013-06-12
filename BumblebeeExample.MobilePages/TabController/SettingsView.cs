@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Bumblebee.Exceptions;
+using Bumblebee.Implementation;
 using Bumblebee.Interfaces;
 using Bumblebee.Setup;
 using Bumblebee.Extensions;
@@ -21,7 +22,7 @@ namespace BumblebeeExample.MobilePages.TabController
 
         public ITextField<SettingsView> UsernameField
         {
-            get { return new IOSTextField<SettingsView>(this, GetElement(ByIOS.Name("Username"))
+            get { return new TextField<SettingsView>(this, GetElement(ByIOS.Name("Username"))
                                                              .FindElement(ByIOS.Type("UIATextField"))); }
         }
 
@@ -29,7 +30,7 @@ namespace BumblebeeExample.MobilePages.TabController
         {
             get
             {
-                return new IOSTextField<SettingsView>(this, GetElement(ByIOS.Name("Password"))
+                return new TextField<SettingsView>(this, GetElement(ByIOS.Name("Password"))
                                                            .FindElement(ByIOS.Type("UIASecureTextField")));
             }
         }
@@ -37,8 +38,6 @@ namespace BumblebeeExample.MobilePages.TabController
         public SettingsView LogIn()
         {
             GetElement(ByIOS.Name("Login")).Click();
-
-            Thread.Sleep(500);
 
             bool isValid = true;
 
@@ -50,6 +49,8 @@ namespace BumblebeeExample.MobilePages.TabController
 
             if(!isValid)
                 throw new VerificationException("Invalid Login Credentials");
+
+            this.WaitUntil(view => view.Tabs.SettingsTab.Tag.Displayed);
 
             return new SettingsView(Session);
         } 

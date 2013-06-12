@@ -18,7 +18,7 @@ namespace BumblebeeExample.Tests.MobileTests
 
             Session.CurrentBlock<FrontView>()
                    .Tabs.SettingsTab.Click()
-                   .UsernameField.EnterText("BumblebeeExample")
+                   .UsernameField.EnterText("Bumblebee_Example")
                    .PasswordField.EnterText("123abc!!")
                    .LogIn().Tabs.PostsTab.Click();
         }

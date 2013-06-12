@@ -31,7 +31,7 @@ namespace BumblebeeExample.Tests.MobileTests
             jsonMap["locale"] = "en_GB";
             jsonMap["variation"] = "Regular";
             jsonMap["timeHack"] = false;
-            jsonMap["device"] = "iphone";
+            jsonMap["device"] = "ipad";
             jsonMap["CFBundleVerson"] = "202949";
             jsonMap["language"] = "en";
             jsonMap["javascriptEnabled"] = true;
@@ -46,6 +46,8 @@ namespace BumblebeeExample.Tests.MobileTests
                                         new RemoteIOSEnvironment("http://10.211.55.2:5555/wd/hub",
                                         new DesiredCapabilities(GetJsonMap()), 
                                         TimeSpan.FromSeconds(60)));
+
+            Session.Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(5));
 
             try
             {

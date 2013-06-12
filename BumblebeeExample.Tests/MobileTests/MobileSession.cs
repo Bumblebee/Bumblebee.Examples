@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bumblebee.Setup;
+using BumblebeeIOS;
 using BumblebeeIOS.Implementation;
+using OpenQA.Selenium.Support.UI;
 
 namespace BumblebeeExample.Tests.MobileTests
 {
