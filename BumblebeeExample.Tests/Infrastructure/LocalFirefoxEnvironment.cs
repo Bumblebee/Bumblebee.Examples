@@ -3,7 +3,7 @@ using Bumblebee.Setup;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 
-namespace BumblebeeExample.Tests
+namespace BumblebeeExample.Tests.Infrastructure
 {
     public class LocalFirefoxEnvironment : IDriverEnvironment
     {
