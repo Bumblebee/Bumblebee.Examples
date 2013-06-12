@@ -22,8 +22,7 @@ namespace BumblebeeExample.Tests.WebTests
                    .LoginArea
                    .Email.EnterText("bumblebeeexample")
                    .Password.EnterText("123abc!!")
-                   .LoginButton.Click()
-                   .VerifyPresenceOf("the inbox icon", By.Id("mail"));
+                   .LoginButton.Click();
         }
 
         [Test]

@@ -11,7 +11,7 @@ namespace BumblebeeExample.Tests.Infrastructure
         {
             var driver = new ChromeDriver(@"C:\SeGrid");
             driver.Manage().Window.Maximize();
-            driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(5000));
+            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(5));
             return driver;
         }
     }
