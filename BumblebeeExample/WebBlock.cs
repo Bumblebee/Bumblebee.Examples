@@ -13,6 +13,7 @@ namespace BumblebeeExample
 
         public WebBlock(Session session) : base(session)
         {
+            // Wait for the DOM to start changing so we can START waiting for the new element
             this.Pause(200);
             Wait = new WebDriverWait(Session.Driver, new TimeSpan(3000));
             Tag = Wait.Until(driver => driver.GetElement(By.TagName("body")));

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using Bumblebee.Implementation;
 using Bumblebee.Interfaces;
@@ -18,18 +17,19 @@ namespace BumblebeeExample
         {
             get
             {
-                return GetElements(By.CssSelector("#siteTable .entry")).Select(tag => new Post(Session, tag));
+                return GetElements(By.CssSelector("#siteTable .link"))
+                    .Select(tag => new Post(Session, tag));
             }
         }
 
         public IClickable<RedditPage> Next
         {
-            get { return new Clickable<RedditPage>(this, By.ClassName("next")); }
+            get { return new Clickable<RedditPage>(this, By.PartialLinkText("next")); }
         }
 
         public IClickable<RedditPage> Prev
         {
-            get { return new Clickable<RedditPage>(this, By.ClassName("prev")); }
+            get { return new Clickable<RedditPage>(this, By.PartialLinkText("prev")); }
         }
 
         public IEnumerable<IClickable<RedditPage>> FeaturedSubreddits

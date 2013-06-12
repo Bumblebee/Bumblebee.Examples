@@ -35,5 +35,10 @@ namespace BumblebeeExample
         {
             get { return new Clickable<RedditPage>(this, By.ClassName("subreddit")); }
         }
+
+        public string Rank
+        {
+            get { return GetElement(By.ClassName("rank")).Text; }
+        }
     }
 }

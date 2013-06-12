@@ -22,7 +22,8 @@ namespace BumblebeeExample.Tests.WebTests
                    .LoginArea
                    .Email.EnterText("bumblebeeexample")
                    .Password.EnterText("123abc!!")
-                   .LoginButton.Click();
+                   .LoginButton.Click()
+                   .VerifyPresenceOf("the inbox icon", By.Id("mail"));
         }
 
         [Test]
@@ -30,8 +31,8 @@ namespace BumblebeeExample.Tests.WebTests
         {
             Session.CurrentBlock<LoggedOutPage>()
                    .LoginArea
-                   .Email.EnterText("zxcve")
-                   .Password.EnterText("zxcvzxcv!!")
+                   .Email.EnterText("jjjjjjj")
+                   .Password.EnterText("jjjjjjj")
                    .LoginButton.Click<LoggedOutPage>()
                    .VerifyPresenceOf("the login area", By.Id("login_login-main"));
         }
@@ -49,12 +50,12 @@ namespace BumblebeeExample.Tests.WebTests
         [Test]
         public void ShowPostsFromRandomSubreddit()
         {
-            string sub;
             Session.CurrentBlock<LoggedOutPage>()
-                   .FeaturedSubreddits.Random()
-                   .Store(out sub, rand => rand.Text)
-                   .Click()
-                   .DebugPrint(page => page.Posts.Select(post => post.Title.Text));
+                   .FeaturedSubreddits.Take(5).Random().Click()
+                   .DebugPrint(page => page.Posts.Select(post => post.Title.Text))
+                   .Verify(page => page.Posts.First().Rank == "1")
+                   .Next.Click()
+                   .Verify(page => page.Posts.First().Rank == "26");
         }
     }
 }
