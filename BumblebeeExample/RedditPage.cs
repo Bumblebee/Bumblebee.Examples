@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Bumblebee.Extensions;
 using Bumblebee.Implementation;
 using Bumblebee.Interfaces;
 using Bumblebee.Setup;
@@ -38,9 +39,32 @@ namespace BumblebeeExample
         {
         }
 
-        public IClickable<LoginOrRegisterPopover> LoginOrRegister
+        public LoginArea LoginArea
         {
-            get { return new Clickable<LoginOrRegisterPopover>(this, By.CssSelector(".user a")); }
+            get { return new LoginArea(Session); }
+        }
+    }
+
+    public class LoginArea : WebBlock
+    {
+        public LoginArea(Session session) : base(session)
+        {
+            Tag = GetElement(By.Id("login_login-main"));
+        }
+
+        public ITextField<LoginArea> Email
+        {
+            get { return new TextField<LoginArea>(this, By.Name("user")); }
+        }
+
+        public ITextField<LoginArea> Password
+        {
+            get { return new TextField<LoginArea>(this, By.Name("passwd")); }
+        }
+
+        public IClickable<LoggedInPage> LoginButton
+        {
+            get { return new Clickable<LoggedInPage>(this, By.TagName("button")); }
         }
     }
 
@@ -48,11 +72,14 @@ namespace BumblebeeExample
     {
         public LoggedInPage(Session session) : base(session)
         {
+            // Wait until we're logged in, then reselect the body to keep the DOM fresh
+            Wait.Until(driver => driver.GetElement(By.CssSelector(".user a")));
+            Tag = Session.Driver.GetElement(By.TagName("body"));
         }
 
         public IClickable<WebBlock> Profile
         {
-            get { return new Clickable<LoginOrRegisterPopover>(this, By.CssSelector(".user a")); }
+            get { return new Clickable<WebBlock>(this, By.CssSelector(".user a")); }
         }
     }
 
