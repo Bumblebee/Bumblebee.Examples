@@ -8,6 +8,7 @@ using BumblebeeExample.Tests.MobileTests.Attributes;
 using BumblebeeIOS;
 using BumblebeeIOS.Implementation;
 using MbUnit.Framework;
+using OpenQA.Selenium.Remote;
 
 namespace BumblebeeExample.Tests.MobileTests
 {
@@ -41,29 +42,16 @@ namespace BumblebeeExample.Tests.MobileTests
         [SetUp]
         public virtual void SetUp()
         {
-            Session = new MobileSession(new RemoteIOSEnvironment("http://10.211.55.2:5555/wd/hub", GetJsonMap()));
+            Session = new MobileSession(
+                                        new RemoteIOSEnvironment("http://10.211.55.2:5555/wd/hub",
+                                        new DesiredCapabilities(GetJsonMap()), 
+                                        TimeSpan.FromSeconds(60)));
 
             try
             {
                 string dangerLevel = Metadata.Get("MonkeyTest").First();
-                switch (dangerLevel)
-                {
-                    case "LOW":
-                        Session.Monkey.Probability = 0.2;
-                        break;
-                    case "MEDIUM":
-                        Session.Monkey.Probability = 0.5;
-                        break;
-                    case "HIGH":
-                        Session.Monkey.Probability = 0.8;
-                        break;
-                    case "MONKEY_BUSINESS":
-                        Session.Monkey.Probability = 1.0;
-                        break;
-                    default:
-                        Session.Monkey.Probability = 0.5;
-                        break;
-                }
+                
+                ((IOSMonkey)Session.Monkey).SetProbability(Double.Parse(dangerLevel));
             }
             catch (InvalidOperationException)
             {
@@ -79,10 +67,11 @@ namespace BumblebeeExample.Tests.MobileTests
         [TearDown]
         public virtual void TearDown()
         {
-            Console.WriteLine(Session.Monkey.Probability);
-
-            //if(Session.Monkey.Probability > 0.1)
-              //  Session.Monkey.Logs.Each(Console.WriteLine);
+            try
+            {
+                Metadata.Get("MonkeyTest").First();
+                Session.Monkey.Logs.Each(Console.WriteLine);
+            } catch (InvalidOperationException){}
 
             Session.End();
         }

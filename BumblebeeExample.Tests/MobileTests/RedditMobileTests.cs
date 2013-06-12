@@ -1,7 +1,13 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Bumblebee.Extensions;
+using BumblebeeExample.MobilePages;
+using BumblebeeIOS;
+using BumblebeeIOS.Extensions;
 using BumblebeeExample.MobilePages.TabController;
+using BumblebeeIOS.UIAObjects;
 using MbUnit.Framework;
+using OpenQA.Selenium;
 
 namespace BumblebeeExample.Tests.MobileTests
 {

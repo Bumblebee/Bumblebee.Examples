@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Bumblebee.Exceptions;
 using Bumblebee.Interfaces;
@@ -36,6 +37,8 @@ namespace BumblebeeExample.MobilePages.TabController
         public SettingsView LogIn()
         {
             GetElement(ByIOS.Name("Login")).Click();
+
+            Thread.Sleep(500);
 
             bool isValid = true;
 

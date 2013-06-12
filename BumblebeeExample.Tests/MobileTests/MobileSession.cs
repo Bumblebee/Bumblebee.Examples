@@ -12,7 +12,9 @@ namespace BumblebeeExample.Tests.MobileTests
     {
         public MobileSession(IDriverEnvironment environment) : base(environment)
         {
-            Monkey = new IOSMonkey { Probability = 0 };
+            Monkey = new IOSMonkey();
+
+            ((IOSMonkey)Monkey).SetProbability(0);
         }
     }
 }
