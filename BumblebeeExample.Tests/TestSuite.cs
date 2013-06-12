@@ -18,7 +18,6 @@ namespace BumblebeeExample.Tests
         public virtual void SetUp()
         {
             Session = new Session(new LocalChromeEnvironment());
-            Session.NavigateTo<RedditPage>("http://www.reddit.com");
         }
 
         [TearDown]
