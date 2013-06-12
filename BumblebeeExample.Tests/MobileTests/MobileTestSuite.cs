@@ -31,7 +31,7 @@ namespace BumblebeeExample.Tests.MobileTests
             jsonMap["locale"] = "en_GB";
             jsonMap["variation"] = "Regular";
             jsonMap["timeHack"] = false;
-            jsonMap["device"] = "ipad";
+            jsonMap["device"] = "iphone";
             jsonMap["CFBundleVerson"] = "202949";
             jsonMap["language"] = "en";
             jsonMap["javascriptEnabled"] = true;

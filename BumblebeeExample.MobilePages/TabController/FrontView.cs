@@ -61,7 +61,7 @@ namespace BumblebeeExample.MobilePages.TabController
             {
                 Session.CurrentBlock<FrontView>()
                     .Drag(e => this).AndDrop(-50, 0)
-                    .Pause(500)
+                    .WaitUntil(view => view.GetElements(ByIOS.PartialName("Confirm Deletion")).Any())
                     .GetElement(ByIOS.PartialName("Confirm Deletion")).Click();
                 return new FrontView(Session);
             }
