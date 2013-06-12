@@ -44,8 +44,9 @@ namespace BumblebeeExample.Tests.MobileTests
         {
             Session = new MobileSession(
                                         new RemoteIOSEnvironment("http://10.211.55.2:5555/wd/hub",
-                                        new DesiredCapabilities(GetJsonMap()), 
-                                        TimeSpan.FromSeconds(60)));
+                                            new DesiredCapabilities(GetJsonMap()), 
+                                            TimeSpan.FromSeconds(60))
+                                        );
 
             Session.Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(5));
 
