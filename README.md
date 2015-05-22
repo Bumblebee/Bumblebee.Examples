@@ -1,5 +1,5 @@
-Bumblebee.Example
-================
+Bumblebee.Examples
+==================
 
 Using Bumblebee to automate Reddit interactions.
 
