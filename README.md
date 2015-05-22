@@ -1,4 +1,4 @@
-BumblebeeExample
+Bumblebee.Example
 ================
 
 Using Bumblebee to automate Reddit interactions.
