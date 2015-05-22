@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bumblebee</name>
+    </assembly>
+    <members>
+        <member name="M:Bumblebee.Extensions.AdvancedSeleniumActions.Hover``1(``0,System.Int32)">
+            <summary>
+            Hovers the specified element.
+            </summary>
+            <typeparam name="TElement">The type of the element.</typeparam>
+            <param name="element">The element.</param>
+            <param name="miliseconds">The miliseconds.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bumblebee.Extensions.AdvancedSeleniumActions.Drag``1(``0,System.Func{``0,Bumblebee.Interfaces.IDraggable})">
+            <summary>
+            Drags an element from the specified parent block.
+            </summary>
+            <typeparam name="TParent">The type of the parent block.</typeparam>
+            <param name="parent">The parent block.</param>
+            <param name="getDraggable">The get draggable.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bumblebee.Extensions.AdvancedSeleniumActions.WaitUntil``1(``0,System.Predicate{``0},System.Int32)">
+            <summary>
+            Waits the until.
+            </summary>
+            <typeparam name="TParent">The type of the parent block.</typeparam>
+            <param name="parent">The parent block.</param>
+            <param name="condition">The condition.</param>
+            <param name="miliseconds">The miliseconds.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Bumblebee.Extensions.DragAction`1">
+            <summary>
+            Represents the drag action.
+            </summary>
+            <typeparam name="TParent">The type of the parent block.</typeparam>
+        </member>
+        <member name="M:Bumblebee.Extensions.DragAction`1.#ctor(`0,System.Func{`0,Bumblebee.Interfaces.IDraggable})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bumblebee.Extensions.DragAction`1"/> class.
+            </summary>
+            <param name="parent">The parent.</param>
+            <param name="getDraggable">The get draggable.</param>
+        </member>
+        <member name="M:Bumblebee.Extensions.DragAction`1.AndDrop(System.Func{`0,Bumblebee.Interfaces.IHasBackingElement})">
+            <summary>
+            Fluent syntax for indicating the drop element.
+            </summary>
+            <param name="getDropzone">The get dropzone.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bumblebee.Extensions.DragAction`1.AndDrop``1(System.Func{`0,Bumblebee.Interfaces.IHasBackingElement})">
+            <summary>
+            Fluent syntax for indicating the drop element.
+            </summary>
+            <typeparam name="TCustomResult">The type of the custom result.</typeparam>
+            <param name="getDropzone">The get dropzone.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bumblebee.Extensions.DragAction`1.AndDrop(System.Int32,System.Int32)">
+            <summary>
+            Fluent syntax for indicating the drop element.
+            </summary>
+            <param name="xOffset">The x offset.</param>
+            <param name="yOffset">The y offset.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bumblebee.Extensions.DragAction`1.AndDrop``1(System.Int32,System.Int32)">
+            <summary>
+            Fluent syntax for indicating the drop element.
+            </summary>
+            <typeparam name="TCustomResult">The type of the custom result.</typeparam>
+            <param name="xOffset">The x offset.</param>
+            <param name="yOffset">The y offset.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bumblebee.Extensions.Verification.Verify``1(``0,System.String,System.Predicate{``0})">
+            <summary>
+            Verification method that allows for passing a predicate expression to evaluate some condition and a message to display if predicate is not true.
+            </summary>
+            <remarks>
+            When throwing an error on verification, the system will add "Unable to verify " to anything that you pass as a message.  The recommendation is that you 
+            write your verification strings starting with "that".  An example verification of "that string is empty." would return "Unable to verify that string is empty."
+            </remarks>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="verification"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bumblebee.Extensions.Verification.Verify``1(``0,System.Predicate{``0})">
+            <summary>
+            Verification method that allows for passing a predicate expression to evaluate some condition.
+            </summary>
+            <remarks>
+            If the predicate fails, the system will throw a verification exception with the message "Unable to verify custom verification."
+            </remarks>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bumblebee.Extensions.Verification.VerifyThat``1(``0,System.Action{``0})">
+            <summary>
+            Verification method that allows for passing an assertion from any assertion library.
+            </summary>
+            <remarks>
+            The message that is thrown from the assertion library that you use will be captured in the VerificationException.
+            </remarks>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <param name="assertion"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Bumblebee.Interfaces.IDoubleClickable">
+            <summary>
+            Element that is double-clickable with a static page return.
+            </summary>
+        </member>
+        <member name="T:Bumblebee.Interfaces.IDoubleClickable`1">
+            <summary>
+            Element that is double-clickable with a dynamic page return.
+            </summary>
+            <typeparam name="TResult">The type of page to return.</typeparam>
+        </member>
+        <member name="T:Bumblebee.Implementation.WebBlock">
+            <summary>
+            Base block for typical web pages allowing for specifying a common wait timeout for finding elements.
+            </summary>
+        </member>
+        <member name="M:Bumblebee.Implementation.WebBlock.#ctor(Bumblebee.Setup.Session,System.TimeSpan)">
+            <summary>
+            Constructor that allows for overriding the default timeout for waits.
+            </summary>
+            <param name="session">The session to be used for finding elements in the derived page.</param>
+            <param name="timeout">The timeout period for waits represented as a TimeSpan</param>
+        </member>
+        <member name="M:Bumblebee.Implementation.WebBlock.#ctor(Bumblebee.Setup.Session)">
+            <summary>
+            Default constructor.
+            </summary>
+            <remarks>
+            The default timeout for waiting for elements is 3000 ticks (3-100 nano seconds).  If you need to override this value, call the other constructor.
+            </remarks>
+            <param name="session">The sessionto be used for finding elements in the derived page.</param>
+        </member>
+        <member name="P:Bumblebee.Implementation.WebBlock.Wait">
+            <summary>
+            A common wait timeout that can be used when trying to find elements within derived pages or blocks.
+            </summary>
+        </member>
+        <member name="T:Bumblebee.Exceptions.VerificationException">
+            <summary>
+            The exception that is thrown when a verification fails.
+            </summary>
+        </member>
+        <member name="M:Bumblebee.Exceptions.VerificationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bumblebee.Exceptions.VerificationException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Bumblebee.Exceptions.VerificationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Bumblebee.Exceptions.VerificationException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="T:Bumblebee.Setup.Threaded`1">
+            <summary>
+            Creates thread-safe instances of sessions.
+            </summary>
+            <typeparam name="TSession"></typeparam>
+        </member>
+        <member name="M:Bumblebee.Setup.Threaded`1.With``1">
+            <summary>
+            Allows the creation of a Session-based type using a type derived from IDriverEnvironment that the system can initialize with a parameterless constructor.
+            </summary>
+            <typeparam name="TDriverEnvironment"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Bumblebee.Setup.Threaded`1.With``1(``0)">
+            <summary>
+            Allows the creation of a Session-based type using an instance of a type of IDriverEnvironment.
+            </summary>
+            <typeparam name="TDriverEnvironment"></typeparam>
+            <param name="environment"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
