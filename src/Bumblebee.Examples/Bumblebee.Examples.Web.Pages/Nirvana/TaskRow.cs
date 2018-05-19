@@ -13,19 +13,13 @@ namespace Bumblebee.Examples.Web.Pages.Nirvana
 		{
 		}
 
-		public string Name
-		{
-			get { return GetElement(By.CssSelector("span.name.edittask")).Text; }
-		}
+		public string Name => FindElement(By.CssSelector("span.name.edittask")).Text;
 
-		public IClickable<TaskRow> Complete
-		{
-			get { return new Clickable<TaskRow>(this, By.CssSelector("span.i.check")); }
-		}
+	    public IClickable<TaskRow> Complete => new Clickable<TaskRow>(this, By.CssSelector("span.i.check"));
 
-		public void Delete()
+	    public void Delete()
 		{
-			var drag = GetElement(By.CssSelector("span.i.drag.project"));
+			var drag = FindElement(By.CssSelector("span.i.drag.project"));
 			var drop = new SideBar(Session).Trash;
 
 			GetDragAndDropPerformer()

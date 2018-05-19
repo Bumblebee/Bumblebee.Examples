@@ -9,12 +9,9 @@ namespace Bumblebee.Examples.Web.Pages.Nirvana
 	{
 		public SideBar(Session session) : base(session)
 		{
-			Tag = GetElement(By.Id("east"));
+			Tag = FindElement(By.Id("east"));
 		}
 
-		public IWebElement Trash
-		{
-			get { return GetElement(By.ClassName("trash")); }
-		}
+		public IWebElement Trash => FindElement(By.ClassName("trash"));
 	}
 }

@@ -1,10 +1,8 @@
 ﻿using System.Linq;
-
+using Bumblebee.Examples.Web.IntegrationTests.Shared;
 using Bumblebee.Examples.Web.Pages.Reddit;
 using Bumblebee.Extensions;
 using Bumblebee.Setup;
-using Bumblebee.Setup.DriverEnvironments;
-
 using FluentAssertions;
 
 using NUnit.Framework;
@@ -22,8 +20,8 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 		public void GoToReddit()
 		{
 			Threaded<Session>
-				.With<Chrome>()
-				.NavigateTo<LoggedOutPage>("http://www.reddit.com");
+				.With<HeadlessChrome>()
+				.NavigateTo<LoggedOutPage>("https://old.reddit.com");
 		}
 
 		[TearDown]
@@ -96,6 +94,8 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 						.First().Rank
 						.Should().Be("1", "the first page should start with a rank of 1"))
 				.Next.Click()
+                .DebugPrint(page => 
+			        page.RankedPosts.Count())
 				.VerifyThat(page =>
 					page.RankedPosts
 						.First().Rank
