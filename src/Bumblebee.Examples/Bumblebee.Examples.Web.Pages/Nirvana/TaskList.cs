@@ -15,17 +15,14 @@ namespace Bumblebee.Examples.Web.Pages.Nirvana
 		{
 		}
 
-		public string Name
-		{
-			get { return GetElement(By.ClassName("name")).Text; }
-		}
+		public string Name => FindElement(By.CssSelector(".name > .toggle")).Text.Trim();
 
-		public IEnumerable<TaskRow> TaskRows
+	    public IEnumerable<TaskRow> TaskRows
 		{
 			get
 			{
-				return GetElement(By.ClassName("tasks"))
-					.GetElements(By.ClassName("task"))
+				return FindElement(By.ClassName("tasks"))
+					.FindElements(By.ClassName("task"))
 					.Select(tag => new TaskRow(Session, tag));
 			}
 		}

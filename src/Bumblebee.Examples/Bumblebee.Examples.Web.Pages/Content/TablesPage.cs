@@ -12,14 +12,8 @@ namespace Bumblebee.Examples.Web.Pages.Content
         {
         }
 
-        public ITable TableInAscendingOrder
-        {
-            get { return new Table(this, By.Id("inAscendingOrder")); }
-        }
+        public ITable TableInAscendingOrder => new Table(this, By.Id("inAscendingOrder"));
 
-        public ITable TableInDescendingOrder
-        {
-            get { return new Table(this, By.Id("inDescendingOrder")); }
-        }
+        public ITable TableInDescendingOrder => new Table(this, By.Id("inDescendingOrder"));
     }
 }

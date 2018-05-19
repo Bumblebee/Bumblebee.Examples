@@ -10,22 +10,13 @@ namespace Bumblebee.Examples.Web.Pages.Nirvana
 	{
 		public ToolBar(Session session) : base(session)
 		{
-			Tag = GetElement(By.Id("north"));
+			Tag = FindElement(By.Id("north"));
 		}
 
-		public ITextField<ToolBar> SearchField
-		{
-			get { return new TextField<ToolBar>(this, By.ClassName("q")); }
-		}
+		public ITextField<ToolBar> SearchField => new TextField<ToolBar>(this, By.ClassName("q"));
 
-		public IClickable<NewTaskForm> NewTask
-		{
-			get { return new Clickable<NewTaskForm>(this, By.ClassName("newtask")); }
-		}
+	    public IClickable<NewTaskForm> NewTask => new Clickable<NewTaskForm>(this, By.ClassName("newtask"));
 
-		public IHasText Account
-		{
-			get { return new TextField(this, By.CssSelector("a.right.button.accountmenu.xcmenu")); }
-		}
+	    public IHasText Account => new TextField(this, By.CssSelector("a.right.button.accountmenu.xcmenu"));
 	}
 }

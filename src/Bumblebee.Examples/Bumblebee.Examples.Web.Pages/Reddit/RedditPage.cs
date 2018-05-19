@@ -31,12 +31,12 @@ namespace Bumblebee.Examples.Web.Pages.Reddit
 
 		public IClickable<RedditPage> Next
 		{
-			get { return new Clickable<RedditPage>(this, By.PartialLinkText("next")); }
+			get { return new Clickable<RedditPage>(this, By.CssSelector(".next-button a")); }
 		}
 
 		public IClickable<RedditPage> Prev
 		{
-			get { return new Clickable<RedditPage>(this, By.PartialLinkText("prev")); }
+			get { return new Clickable<RedditPage>(this, By.CssSelector(".prev-button a")); }
 		}
 
 		public IEnumerable<IClickable<RedditPage>> FeaturedSubreddits

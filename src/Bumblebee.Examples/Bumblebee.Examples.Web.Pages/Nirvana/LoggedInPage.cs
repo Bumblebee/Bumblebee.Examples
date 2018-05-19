@@ -11,23 +11,14 @@ namespace Bumblebee.Examples.Web.Pages.Nirvana
 		public LoggedInPage(Session session)
 			: base(session)
 		{
-			Wait.Until(driver => driver.GetElement(By.Id("north")));
-			Tag = Session.Driver.GetElement(By.TagName("body"));
+			Wait.Until(driver => driver.FindElement(By.Id("north")));
+			Tag = Session.Driver.FindElement(By.TagName("body"));
 		}
 
-		public ToolBar ToolBar
-		{
-			get { return new ToolBar(Session); }
-		}
+		public ToolBar ToolBar => new ToolBar(Session);
 
-		public SideBar SideBar
-		{
-			get { return new SideBar(Session); }
-		}
+	    public SideBar SideBar => new SideBar(Session);
 
-		public MainArea MainArea
-		{
-			get { return new MainArea(Session); }
-		}
+	    public MainArea MainArea => new MainArea(Session);
 	}
 }

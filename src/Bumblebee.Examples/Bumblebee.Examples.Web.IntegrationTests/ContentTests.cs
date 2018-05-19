@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 
 using Bumblebee.Examples.Web.IntegrationTests.Shared;
@@ -8,8 +7,6 @@ using Bumblebee.Extensions;
 using Bumblebee.Implementation;
 using Bumblebee.Interfaces;
 using Bumblebee.Setup;
-using Bumblebee.Setup.DriverEnvironments;
-
 using FluentAssertions;
 
 using NUnit.Framework;
@@ -25,7 +22,7 @@ namespace Bumblebee.Examples.Web.IntegrationTests
         public void given_tables_in_ascending_and_descending_order_when_verifying_order_should_be_valid()
         {
             Threaded<Session>
-                .With<Chrome>()
+                .With<HeadlessChrome>()
                 .NavigateTo<TablesPage>(String.Format("{0}/{1}", this.BaseUrl, "Content/Tables.htm"))
                 .VerifyThat(page =>
                     page
