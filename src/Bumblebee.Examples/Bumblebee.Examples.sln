@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bumblebee.Examples.Web.Pages", "Bumblebee.Examples.Web.Pages\Bumblebee.Examples.Web.Pages.csproj", "{0D8855FE-6C42-4EEB-ACA5-072908B0A917}"
 EndProject
