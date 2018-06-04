@@ -5,6 +5,7 @@ using Bumblebee.Examples.Web.IntegrationTests.Shared;
 using Bumblebee.Examples.Web.Pages.Content;
 using Bumblebee.Extensions;
 using Bumblebee.Implementation;
+using Bumblebee.IntegrationTests.Shared.Hosting;
 using Bumblebee.Interfaces;
 using Bumblebee.Setup;
 using FluentAssertions;
@@ -23,7 +24,7 @@ namespace Bumblebee.Examples.Web.IntegrationTests
         {
             Threaded<Session>
                 .With<HeadlessChrome>()
-                .NavigateTo<TablesPage>(String.Format("{0}/{1}", this.BaseUrl, "Content/Tables.htm"))
+                .NavigateTo<TablesPage>(String.Format("{0}/{1}", BaseUrl, "Content/Tables.htm"))
                 .VerifyThat(page =>
                     page
                         .TableInAscendingOrder
