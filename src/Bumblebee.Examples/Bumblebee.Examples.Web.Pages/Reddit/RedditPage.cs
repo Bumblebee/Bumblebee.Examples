@@ -19,7 +19,7 @@ namespace Bumblebee.Examples.Web.Pages.Reddit
 		{
 			get
 			{
-				return GetElements(By.CssSelector("#siteTable .link"))
+				return FindElements(By.CssSelector("#siteTable .link"))
 					.Select(tag => new Post(Session, tag));
 			}
 		}
@@ -29,21 +29,15 @@ namespace Bumblebee.Examples.Web.Pages.Reddit
 			get { return Posts.Where(post => post.Rank != string.Empty); }
 		}
 
-		public IClickable<RedditPage> Next
-		{
-			get { return new Clickable<RedditPage>(this, By.CssSelector(".next-button a")); }
-		}
+		public IClickable<RedditPage> Next => new Clickable<RedditPage>(this, By.CssSelector(".next-button a"));
 
-		public IClickable<RedditPage> Prev
-		{
-			get { return new Clickable<RedditPage>(this, By.CssSelector(".prev-button a")); }
-		}
+	    public IClickable<RedditPage> Prev => new Clickable<RedditPage>(this, By.CssSelector(".prev-button a"));
 
-		public IEnumerable<IClickable<RedditPage>> FeaturedSubreddits
+	    public IEnumerable<IClickable<RedditPage>> FeaturedSubreddits
 		{
 			get
 			{
-				return GetElements(By.CssSelector("#sr-bar a"))
+				return FindElements(By.CssSelector("#sr-bar a"))
 					.Where(a => a.Displayed)
 					.Select(a => new Clickable<RedditPage>(this, a));
 			}

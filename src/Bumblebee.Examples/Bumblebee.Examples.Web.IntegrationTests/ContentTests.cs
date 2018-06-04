@@ -57,7 +57,7 @@ namespace Bumblebee.Examples.Web.IntegrationTests
         {
             get
             {
-                var text = GetElements(By.TagName("td"))
+                var text = FindElements(By.TagName("td"))
                     .ElementAt(0)
                     .Text;
 
@@ -65,14 +65,8 @@ namespace Bumblebee.Examples.Web.IntegrationTests
             }
         }
 
-        public string Name
-        {
-            get
-            {
-                return GetElements(By.TagName("td"))
-                    .ElementAt(1)
-                    .Text;
-            }
-        }
+        public string Name => FindElements(By.TagName("td"))
+            .ElementAt(1)
+            .Text;
     }
 }

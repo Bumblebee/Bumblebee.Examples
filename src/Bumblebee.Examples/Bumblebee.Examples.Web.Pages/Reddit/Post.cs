@@ -32,14 +32,8 @@ namespace Bumblebee.Examples.Web.Pages.Reddit
 			get { return new Clickable<WebBlock>(this, By.ClassName("domain")); }
 		}
 
-		public IClickable<RedditPage> Subreddit
-		{
-			get { return new Clickable<RedditPage>(this, By.ClassName("subreddit")); }
-		}
+		public IClickable<RedditPage> Subreddit => new Clickable<RedditPage>(this, By.ClassName("subreddit"));
 
-		public string Rank
-		{
-			get { return GetElement(By.ClassName("rank")).Text; }
-		}
+	    public string Rank => FindElement(By.ClassName("rank")).Text;
 	}
 }
