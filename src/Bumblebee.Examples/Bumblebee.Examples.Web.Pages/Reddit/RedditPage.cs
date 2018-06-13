@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-
+using Bumblebee.Examples.Web.Pages.Nirvana;
 using Bumblebee.Implementation;
 using Bumblebee.Interfaces;
 using Bumblebee.Setup;
@@ -9,8 +9,10 @@ using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Reddit
 {
-	public class RedditPage : WebBlock
-	{
+    //1:  Pages need to derive from Page, not WebBlock to limit parameters and NavigateTo() method.
+    //public class RedditPage : WebBlock
+    public class RedditPage : WebPage
+    {
 		public RedditPage(Session session) : base(session)
 		{
 		}
@@ -19,8 +21,10 @@ namespace Bumblebee.Examples.Web.Pages.Reddit
 		{
 			get
 			{
-				return FindElements(By.CssSelector("#siteTable .link"))
-					.Select(tag => new Post(Session, tag));
+				/*return FindElements(By.CssSelector("#siteTable .link"))
+					.Select(tag => new Post(Session, tag));*/
+
+			    return new Blocks<Post>(this, By.CssSelector("#siteTable .link"));
 			}
 		}
 
@@ -36,11 +40,18 @@ namespace Bumblebee.Examples.Web.Pages.Reddit
 	    public IEnumerable<IClickable<RedditPage>> FeaturedSubreddits
 		{
 			get
-			{
-				return FindElements(By.CssSelector("#sr-bar a"))
-					.Where(a => a.Displayed)
-					.Select(a => new Clickable<RedditPage>(this, a));
-			}
+            {
+                /*return FindElements(By.CssSelector("#sr-bar a"))
+                    .Where(a => a.Displayed)
+                    .Select(a => new Clickable<RedditPage>(this, a));*/
+                
+                //2:  Use By.Function() to encapsulate the logic to FindElements.
+                //3:  Use Elements<T>(IBlock, By) to encapsulate logic for finding a list of Elements.
+
+                return new Elements<Clickable<RedditPage>>(this, By.Function(ctx => 
+                    ctx.FindElements(By.CssSelector("#sr-bar a"))
+                        .Where(a => a.Displayed)));
+            }
 		}
 	}
 }

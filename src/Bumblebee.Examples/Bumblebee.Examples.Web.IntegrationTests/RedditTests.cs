@@ -21,7 +21,7 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 		{
 			Threaded<Session>
 				.With<HeadlessChrome>()
-				.NavigateTo<LoggedOutPage>("https://old.reddit.com");
+				.NavigateTo<LoggedOutPage>("https://old.reddit.com/top");
 		}
 
 		[TearDown]
@@ -80,12 +80,15 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 		[Test]
 		public void given_logged_out_at_front_page_when_clicking_random_featured_subreddit_first_page_should_start_with_1_and_second_page_should_start_with_26()
 		{
+		    int numberOfFeaturedSubreddits;
+
 			Threaded<Session>
 				.CurrentBlock<LoggedOutPage>()
 				.FeaturedSubreddits
-				.Take(5)
-				.Random()
-				.Click()
+                .Store(out numberOfFeaturedSubreddits, opt => opt.Count())
+				.Take(numberOfFeaturedSubreddits - 1)
+  				.Random()
+			    .Click()
 				.DebugPrint(page =>
 					page.RankedPosts
 						.Select(post => post.Title.Text))

@@ -6,8 +6,9 @@ using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Nirvana
 {
-	public class LoggedOutPage : WebBlock
-	{
+    //public class LoggedOutPage : WebBlock
+    public class LoggedOutPage : Page
+    {
 		public LoggedOutPage(Session session) : base(session)
 		{
 		}

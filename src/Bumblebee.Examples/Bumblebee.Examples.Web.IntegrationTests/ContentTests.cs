@@ -50,10 +50,6 @@ namespace Bumblebee.Examples.Web.IntegrationTests
         {
         }
 
-        public TablesRow(IBlock parent, IWebElement tag) : base(parent, tag)
-        {
-        }
-
         public int Id
         {
             get

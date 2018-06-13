@@ -6,10 +6,12 @@ using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Reddit
 {
-	public class Post : SpecificBlock
-	{
-		public Post(Session session, IWebElement tag) : base(session, tag)
-		{
+    //public class Post : SpecificBlock
+    public class Post : WebBlock
+    {
+        //public Post(Session session, IWebElement tag) : base(session, tag)
+        public Post(IBlock parent, By by) : base(parent, by)
+        {
 		}
 
 		public IClickable<WebBlock> Title

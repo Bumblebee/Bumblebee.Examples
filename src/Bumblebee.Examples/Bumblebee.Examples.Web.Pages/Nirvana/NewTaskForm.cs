@@ -8,9 +8,10 @@ namespace Bumblebee.Examples.Web.Pages.Nirvana
 {
 	public class NewTaskForm : WebBlock
 	{
-		public NewTaskForm(Session session) : base(session)
-		{
-			Tag = FindElement(By.ClassName("edit"));
+        //public NewTaskForm(Session session) : base(session)
+	    public NewTaskForm(IBlock parent) : base(parent, By.ClassName("edit"))
+        {
+			//Tag = FindElement(By.ClassName("edit"));
 		}
 
 		public ITextField<NewTaskForm> Name => new TextField<NewTaskForm>(this, By.Name("name"));

@@ -7,10 +7,12 @@ using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Nirvana
 {
-	public class TaskRow : SpecificBlock
-	{
-		public TaskRow(Session session, IWebElement tag) : base(session, tag)
-		{
+    //public class TaskRow : SpecificBlock
+    public class TaskRow : WebBlock
+    {
+        //public TaskRow(Session session, IWebElement tag) : base(session, tag)
+        public TaskRow(IBlock parent, By by) : base(parent, by)
+        {
 		}
 
 		public string Name => FindElement(By.CssSelector("span.name.edittask")).Text;
@@ -20,13 +22,14 @@ namespace Bumblebee.Examples.Web.Pages.Nirvana
 	    public void Delete()
 		{
 			var drag = FindElement(By.CssSelector("span.i.drag.project"));
-			var drop = new SideBar(Session).Trash;
 
-			GetDragAndDropPerformer()
-				.DragAndDrop(drag, drop);
+            //var drop = new SideBar(Session).Trash;
+		    var trash = this.FindRelated<SideBar>().Trash;
+
+            GetDragAndDropPerformer()
+				.DragAndDrop(drag, trash);
 
 			Session.Pause(200);
-
 		}
 	}
 }
