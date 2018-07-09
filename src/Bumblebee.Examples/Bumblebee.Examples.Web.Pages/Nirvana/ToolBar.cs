@@ -1,14 +1,12 @@
 ﻿using System;
 using Bumblebee.Implementation;
 using Bumblebee.Interfaces;
-using Bumblebee.Setup;
-
-using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Nirvana
 {
-	public class ToolBar : WebBlock
-	{
+    //public class ToolBar : WebBlock
+    public class ToolBar : Block
+    {
         //public ToolBar(Session session) : base(session)
 	    public ToolBar(IBlock parent) : base(parent, By.Id("north"), TimeSpan.FromSeconds(5))
         {

@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bumblebee, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bumblebee.Automation.2.1.0-beta\lib\netstandard2.0\Bumblebee.dll</HintPath>
+    <Reference Include="Bumblebee, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bumblebee.Automation.2.1.1-beta\lib\netstandard2.0\Bumblebee.dll</HintPath>
     </Reference>
     <Reference Include="Nancy, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Nancy.1.2.0\lib\net40\Nancy.dll</HintPath>
@@ -58,7 +58,6 @@
     <Compile Include="Nirvana\LoggedOutPage.cs" />
     <Compile Include="Nirvana\MainArea.cs" />
     <Compile Include="Nirvana\NewTaskForm.cs" />
-    <Compile Include="Nirvana\PageWithWait.cs" />
     <Compile Include="Nirvana\SideBar.cs" />
     <Compile Include="Nirvana\TaskList.cs" />
     <Compile Include="Nirvana\TaskRow.cs" />

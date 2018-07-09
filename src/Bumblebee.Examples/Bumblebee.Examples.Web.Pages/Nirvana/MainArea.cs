@@ -1,16 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-
 using Bumblebee.Implementation;
 using Bumblebee.Interfaces;
-using Bumblebee.Setup;
-
-using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Nirvana
 {
-	public class MainArea : WebBlock
-	{
+    //*Replace WebBlock with Block - added Wait
+    //public class MainArea : WebBlock
+    public class MainArea : Block
+    {
 	    public MainArea(IBlock parent) : base(parent, By.Id("main"))
         //public MainArea(Session session) : base(session)
         {

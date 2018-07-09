@@ -1,19 +1,15 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using Bumblebee.Extensions;
 using Bumblebee.Implementation;
 using Bumblebee.Interfaces;
-using Bumblebee.Setup;
-
 using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Nirvana
 {
     //5:  Get rid of SpecificBlock and just derive from WebBlock.
     //public class TaskList : SpecificBlock
-    public class TaskList : WebBlock
-	{
+    //public class TaskList : WebBlock
+    public class TaskList : Block
+    {
         public TaskList(IBlock parent, By by) : base(parent, by)
 		//public TaskList(Session session, IWebElement tag) : base(session, tag)
 		{

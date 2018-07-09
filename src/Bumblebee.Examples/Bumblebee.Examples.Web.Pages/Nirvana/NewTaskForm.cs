@@ -1,13 +1,11 @@
 ﻿using Bumblebee.Implementation;
 using Bumblebee.Interfaces;
-using Bumblebee.Setup;
-
-using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Nirvana
 {
-	public class NewTaskForm : WebBlock
-	{
+    //public class NewTaskForm : WebBlock
+    public class NewTaskForm : Block
+    {
         //public NewTaskForm(Session session) : base(session)
 	    public NewTaskForm(IBlock parent) : base(parent, By.ClassName("edit"))
         {

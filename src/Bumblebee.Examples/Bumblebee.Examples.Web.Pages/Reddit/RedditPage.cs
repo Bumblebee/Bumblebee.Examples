@@ -1,17 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Bumblebee.Examples.Web.Pages.Nirvana;
 using Bumblebee.Implementation;
 using Bumblebee.Interfaces;
 using Bumblebee.Setup;
-
-using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Reddit
 {
     //1:  Pages need to derive from Page, not WebBlock to limit parameters and NavigateTo() method.
     //public class RedditPage : WebBlock
-    public class RedditPage : WebPage
+    //public class RedditPage : WebPage
+    public class RedditPage : Page
     {
 		public RedditPage(Session session) : base(session)
 		{

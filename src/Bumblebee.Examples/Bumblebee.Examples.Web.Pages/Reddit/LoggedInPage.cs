@@ -2,9 +2,6 @@
 using Bumblebee.Interfaces;
 using Bumblebee.Setup;
 
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-
 namespace Bumblebee.Examples.Web.Pages.Reddit
 {
 	public class LoggedInPage : RedditPage
@@ -16,8 +13,9 @@ namespace Bumblebee.Examples.Web.Pages.Reddit
 			//Tag = Session.Driver.FindElement(By.TagName("body"));
 		}
 
-		public IClickable<WebBlock> Profile => new Clickable<WebBlock>(this, By.CssSelector(".user a"));
+        //public IClickable<WebBlock> Profile => new Clickable<WebBlock>(this, By.CssSelector(".user a"));
+	    public IClickable<Block> Profile => new Clickable<Block>(this, By.CssSelector(".user a"));
 
-	    public IClickable<LoggedOutPage> Logout => new Clickable<LoggedOutPage>(this, By.LinkText("logout"));
+        public IClickable<LoggedOutPage> Logout => new Clickable<LoggedOutPage>(this, By.LinkText("logout"));
 	}
 }

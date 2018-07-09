@@ -1,10 +1,13 @@
-﻿using Bumblebee.Implementation;
+﻿using System;
+using Bumblebee.Implementation;
 using Bumblebee.Setup;
 
 namespace Bumblebee.Examples.Web.Pages.Nirvana
 {
+    //*Pages now replace the WebBlock and WebPage - support Wait
     //public class LoggedInPage : WebBlock
-    public class LoggedInPage : WebPage
+    //public class LoggedInPage : WebPage
+    public class LoggedInPage : Page
     {
         public LoggedInPage(Session session) : base(session)
         //public LoggedInPage(IBlock parent) : base(parent, By.TagName("body"))

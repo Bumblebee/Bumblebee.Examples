@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Bumblebee.Examples.Web.IntegrationTests.Shared;
 using Bumblebee.Examples.Web.Pages.Reddit;
 using Bumblebee.Extensions;
@@ -21,7 +22,7 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 		{
 			Threaded<Session>
 				.With<HeadlessChrome>()
-				.NavigateTo<LoggedOutPage>("https://old.reddit.com/top");
+				.NavigateTo<LoggedOutPage>("https://old.reddit.com");
 		}
 
 		[TearDown]
@@ -55,7 +56,7 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 				.VerifyPresenceOf("the login area", By.Id("login_login-main"));
 		}
 
-		[Test]
+        [Test]
 		public void given_logged_out_when_at_front_page_then_posts_should_contain_til()
 		{
 			Threaded<Session>
@@ -80,16 +81,19 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 		[Test]
 		public void given_logged_out_at_front_page_when_clicking_random_featured_subreddit_first_page_should_start_with_1_and_second_page_should_start_with_26()
 		{
-		    int numberOfFeaturedSubreddits;
-
-			Threaded<Session>
+		    var subreddits = Threaded<Session>
 				.CurrentBlock<LoggedOutPage>()
-				.FeaturedSubreddits
-                .Store(out numberOfFeaturedSubreddits, opt => opt.Count())
-				.Take(numberOfFeaturedSubreddits - 1)
+				.FeaturedSubreddits;
+
+		    var redditPage = subreddits
+                .Store(out _, opt => opt.Count())
+				.Take(2)
   				.Random()
 			    .Click()
-				.DebugPrint(page =>
+                .Store(out _, page => page.RankedPosts);
+
+		    redditPage
+                .DebugPrint(page =>
 					page.RankedPosts
 						.Select(post => post.Title.Text))
 				.VerifyThat(page =>
