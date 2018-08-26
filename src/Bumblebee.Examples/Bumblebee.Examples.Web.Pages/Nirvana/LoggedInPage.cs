@@ -26,6 +26,6 @@ namespace Bumblebee.Examples.Web.Pages.Nirvana
         public MainArea MainArea => new MainArea(this);
         
         //need to add reference on the page to this block for FindRelated to find it.
-        public NewTaskForm NewTaskForm => new NewTaskForm(this);
+        public Dynamic<NewTaskForm> NewTaskForm => new Dynamic<NewTaskForm>(this, By.ClassName("edit"));
     }
 }
