@@ -15,16 +15,16 @@ namespace Bumblebee.Examples.Web.Pages.Reddit
 		{
 		}
 
-		public IEnumerable<Post> Posts
-		{
-			get
-			{
-				/*return FindElements(By.CssSelector("#siteTable .link"))
-					.Select(tag => new Post(Session, tag));*/
+		public IEnumerable<Post> Posts => new Blocks<Post>(this, By.CssSelector("#siteTable .link"));
+		//{
+		//	get
+		//	{
+		//		/*return FindElements(By.CssSelector("#siteTable .link"))
+		//			.Select(tag => new Post(Session, tag));*/
 
-			    return new Blocks<Post>(this, By.CssSelector("#siteTable .link"));
-			}
-		}
+		//		return new Blocks<Post>(this, By.CssSelector("#siteTable .link"));
+        //  }
+		//}
 
 		public IEnumerable<Post> RankedPosts
 		{

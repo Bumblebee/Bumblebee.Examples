@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Bumblebee.Examples.Web.IntegrationTests.Shared;
 using Bumblebee.Examples.Web.Pages.Reddit;
@@ -18,7 +19,7 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 	public class RedditTests
 	{
 		[SetUp]
-		public void GoToReddit()
+		public void BeforeEach()
 		{
 			Threaded<Session>
 				.With<HeadlessChrome>()
@@ -26,7 +27,7 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 		}
 
 		[TearDown]
-		public void TearDown()
+		public void AfterEach()
 		{
 			Threaded<Session>
 				.End();
@@ -57,15 +58,15 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 		}
 
         [Test]
-		public void given_logged_out_when_at_front_page_then_posts_should_contain_til()
-		{
-			Threaded<Session>
+		public void given_logged_out_when_at_front_page_then_posts_should_contain_funny_items()
+        {
+			var posts = Threaded<Session>
 				.CurrentBlock<LoggedOutPage>()
-				.VerifyThat(page =>
-					page.Posts.Any(post =>
-						post.Subreddit.Text.Contains("todayilearned"))
-						.Should().BeTrue("there should be at least one til on the front page"));
-		}
+                .VerifyThat(page => page
+			        .Posts.Any(post =>
+                    post.Subreddit.Text.Contains("funny"))
+                    .Should().BeTrue("there should be at least one funny item on the front page"));
+        }
 
 		[Test]
 		public void given_logged_out_when_at_front_page_then_posts_should_not_contain_selenium()
