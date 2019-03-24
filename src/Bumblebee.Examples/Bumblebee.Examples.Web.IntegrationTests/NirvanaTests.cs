@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Bumblebee.Examples.Web.IntegrationTests.Shared;
 using Bumblebee.Examples.Web.Pages.Nirvana;
 using Bumblebee.Extensions;
 using Bumblebee.Setup;

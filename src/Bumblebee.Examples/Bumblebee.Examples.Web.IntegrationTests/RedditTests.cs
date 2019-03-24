@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Bumblebee.Examples.Web.IntegrationTests.Shared;
+﻿using System.Linq;
 using Bumblebee.Examples.Web.Pages.Reddit;
 using Bumblebee.Extensions;
 using Bumblebee.Setup;
+using Bumblebee.Setup.DriverEnvironments;
 using FluentAssertions;
 
 using NUnit.Framework;
