@@ -6,7 +6,8 @@ using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Content
 {
-    public class TablesPage : WebBlock
+    //public class TablesPage : WebBlock
+    public class TablesPage : Page
     {
         public TablesPage(Session session) : base(session)
         {

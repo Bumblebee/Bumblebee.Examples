@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-
-using Bumblebee.Extensions;
 using Bumblebee.Implementation;
-using Bumblebee.Setup;
-
+using Bumblebee.Interfaces;
 using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Nirvana
 {
-	public class TaskList : SpecificBlock
-	{
-		public TaskList(Session session, IWebElement tag) : base(session, tag)
+    //5:  Get rid of SpecificBlock and just derive from WebBlock.
+    //public class TaskList : SpecificBlock
+    //public class TaskList : WebBlock
+    public class TaskList : Block
+    {
+        public TaskList(IBlock parent, By by) : base(parent, by)
+		//public TaskList(Session session, IWebElement tag) : base(session, tag)
 		{
 		}
 
@@ -21,9 +21,16 @@ namespace Bumblebee.Examples.Web.Pages.Nirvana
 		{
 			get
 			{
-				return FindElement(By.ClassName("tasks"))
+                //8:  Somtimes you need to use a more sophisticated CSS selector instead of a set of functions to return rich WebBlocks.
+                /*return FindElement(By.ClassName("tasks"))
 					.FindElements(By.ClassName("task"))
-					.Select(tag => new TaskRow(Session, tag));
+					.Select(tag => new TaskRow(Session, tag));*/
+
+			    return new Blocks<TaskRow>(this, By.CssSelector(".tasks .task"));
+
+			    /*return new Blocks<TaskRow>(this, By.Function(ctx => ctx.FindElements(By.ClassName("tasks"))
+			            .SelectMany(x => x.FindElements(By.ClassName("task")))
+			    ));*/
 			}
 		}
 	}

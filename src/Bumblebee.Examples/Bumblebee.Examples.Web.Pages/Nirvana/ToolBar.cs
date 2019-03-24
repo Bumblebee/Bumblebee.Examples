@@ -1,16 +1,16 @@
-﻿using Bumblebee.Implementation;
+﻿using System;
+using Bumblebee.Implementation;
 using Bumblebee.Interfaces;
-using Bumblebee.Setup;
-
-using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Nirvana
 {
-	public class ToolBar : WebBlock
-	{
-		public ToolBar(Session session) : base(session)
-		{
-			Tag = FindElement(By.Id("north"));
+    //public class ToolBar : WebBlock
+    public class ToolBar : Block
+    {
+        //public ToolBar(Session session) : base(session)
+	    public ToolBar(IBlock parent) : base(parent, By.Id("north"), TimeSpan.FromSeconds(5))
+        {
+			//Tag = FindElement(By.Id("north"));
 		}
 
 		public ITextField<ToolBar> SearchField => new TextField<ToolBar>(this, By.ClassName("q"));

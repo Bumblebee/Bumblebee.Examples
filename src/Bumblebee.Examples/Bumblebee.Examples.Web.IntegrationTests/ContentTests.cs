@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Linq;
-
-using Bumblebee.Examples.Web.IntegrationTests.Shared;
 using Bumblebee.Examples.Web.Pages.Content;
 using Bumblebee.Extensions;
 using Bumblebee.Implementation;
 using Bumblebee.IntegrationTests.Shared.Hosting;
 using Bumblebee.Interfaces;
 using Bumblebee.Setup;
+using Bumblebee.Setup.DriverEnvironments;
 using FluentAssertions;
 
 using NUnit.Framework;
@@ -47,10 +46,6 @@ namespace Bumblebee.Examples.Web.IntegrationTests
     public class TablesRow : TableRow
     {
         public TablesRow(IBlock parent, By @by) : base(parent, @by)
-        {
-        }
-
-        public TablesRow(IBlock parent, IWebElement tag) : base(parent, tag)
         {
         }
 

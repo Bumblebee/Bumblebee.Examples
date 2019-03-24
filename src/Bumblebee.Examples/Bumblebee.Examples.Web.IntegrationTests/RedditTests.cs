@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using Bumblebee.Examples.Web.IntegrationTests.Shared;
 using Bumblebee.Examples.Web.Pages.Reddit;
 using Bumblebee.Extensions;
 using Bumblebee.Setup;
+using Bumblebee.Setup.DriverEnvironments;
 using FluentAssertions;
 
 using NUnit.Framework;
@@ -17,7 +17,7 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 	public class RedditTests
 	{
 		[SetUp]
-		public void GoToReddit()
+		public void BeforeEach()
 		{
 			Threaded<Session>
 				.With<HeadlessChrome>()
@@ -25,7 +25,7 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 		}
 
 		[TearDown]
-		public void TearDown()
+		public void AfterEach()
 		{
 			Threaded<Session>
 				.End();
@@ -55,16 +55,16 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 				.VerifyPresenceOf("the login area", By.Id("login_login-main"));
 		}
 
-		[Test]
-		public void given_logged_out_when_at_front_page_then_posts_should_contain_til()
-		{
-			Threaded<Session>
+        [Test]
+		public void given_logged_out_when_at_front_page_then_posts_should_contain_todayilearned_items()
+        {
+			var posts = Threaded<Session>
 				.CurrentBlock<LoggedOutPage>()
-				.VerifyThat(page =>
-					page.Posts.Any(post =>
-						post.Subreddit.Text.Contains("todayilearned"))
-						.Should().BeTrue("there should be at least one til on the front page"));
-		}
+                .VerifyThat(page => page
+			        .Posts.Any(post =>
+                    post.Subreddit.Text.Contains("todayilearned"))
+                    .Should().BeTrue("there should be at least one todayilearned item on the front page"));
+        }
 
 		[Test]
 		public void given_logged_out_when_at_front_page_then_posts_should_not_contain_selenium()
@@ -80,13 +80,19 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 		[Test]
 		public void given_logged_out_at_front_page_when_clicking_random_featured_subreddit_first_page_should_start_with_1_and_second_page_should_start_with_26()
 		{
-			Threaded<Session>
+		    var subreddits = Threaded<Session>
 				.CurrentBlock<LoggedOutPage>()
-				.FeaturedSubreddits
-				.Take(5)
-				.Random()
-				.Click()
-				.DebugPrint(page =>
+				.FeaturedSubreddits;
+
+		    var redditPage = subreddits
+                .Store(out _, opt => opt.Count())
+				.Take(2)
+  				.Random()
+			    .Click()
+                .Store(out _, page => page.RankedPosts);
+
+		    redditPage
+                .DebugPrint(page =>
 					page.RankedPosts
 						.Select(post => post.Title.Text))
 				.VerifyThat(page =>

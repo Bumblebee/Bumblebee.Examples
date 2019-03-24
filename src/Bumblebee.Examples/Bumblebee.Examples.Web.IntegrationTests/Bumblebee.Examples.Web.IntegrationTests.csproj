@@ -36,8 +36,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bumblebee, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bumblebee.Automation.1.3.0\lib\netstandard2.0\Bumblebee.dll</HintPath>
+    <Reference Include="Bumblebee, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bumblebee.Automation.2.1.2\lib\netstandard2.0\Bumblebee.dll</HintPath>
     </Reference>
     <Reference Include="FluentAssertions, Version=3.2.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentAssertions.3.2.2\lib\net45\FluentAssertions.dll</HintPath>
@@ -94,7 +94,6 @@
     <Compile Include="NirvanaTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedditTests.cs" />
-    <Compile Include="Shared\HeadlessChrome.cs" />
     <Compile Include="Shared\Host.cs" />
     <Compile Include="Shared\HostTestFixture.cs" />
     <Compile Include="Shared\IHost.cs" />

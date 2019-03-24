@@ -1,16 +1,17 @@
 ﻿using Bumblebee.Implementation;
 using Bumblebee.Interfaces;
-using Bumblebee.Setup;
-
 using OpenQA.Selenium;
 
 namespace Bumblebee.Examples.Web.Pages.Nirvana
 {
-	public class NewTaskForm : WebBlock
-	{
-		public NewTaskForm(Session session) : base(session)
+    //public class NewTaskForm : WebBlock
+    public class NewTaskForm : Block
+    {
+		//public NewTaskForm(Session session) : base(session)
+		//public NewTaskForm(IBlock parent) : base(parent, By.ClassName("edit"))
+		public NewTaskForm(IBlock parent, By specification) : base(parent, specification)
 		{
-			Tag = FindElement(By.ClassName("edit"));
+			//Tag = FindElement(By.ClassName("edit"));
 		}
 
 		public ITextField<NewTaskForm> Name => new TextField<NewTaskForm>(this, By.Name("name"));

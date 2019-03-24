@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using Bumblebee.Examples.Web.IntegrationTests.Shared;
 using Bumblebee.Examples.Web.Pages.Nirvana;
 using Bumblebee.Extensions;
 using Bumblebee.Setup;
+using Bumblebee.Setup.DriverEnvironments;
 using FluentAssertions;
 
 using NUnit.Framework;
@@ -13,7 +13,7 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 	// ReSharper disable InconsistentNaming
 
 	[TestFixture]
-	public class NirvanaTests
+	public class NirvanaTests : SessionFixture
 	{
 		private const string Url = "https://nirvanahq.com/login";
 		private const string ValidUsername = "bumblebee@meinershagen.net";
@@ -23,8 +23,8 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 		public void given_valid_logged_in_user_when_adding_task_should_add_task()
 		{
 		    Threaded<Session>
-		        .With<HeadlessChrome>()
-		        .NavigateTo<LoggedOutPage>(Url)
+                .With<HeadlessChrome>()
+                .NavigateTo<LoggedOutPage>(Url)
 		        .Username.EnterText(ValidUsername)
 		        .Password.EnterText(Password)
 		        .Login.Click<LoggedInPage>();
@@ -34,17 +34,26 @@ namespace Bumblebee.Examples.Web.IntegrationTests
             Threaded<Session>
 				.CurrentBlock<LoggedInPage>()
 				.ToolBar
-				.NewTask.Click()
+                .NewTask
+		        .Click()
 				.Name.EnterText(taskInfo.Name)
 				.Note.EnterText(taskInfo.Note)
 				.Save.Click()
-				.TaskLists.First(list => list.Name == "Focus")
+				.TaskLists
+                .First(list => list.Name == "Focus")
 				.TaskRows.First(row => row.Name == taskInfo.Name)
 				.VerifyThat(row => row.Should().NotBeNull())
 				.Delete();
-
-			Threaded<Session>
-				.End();
 		}
 	}
+
+    public abstract class SessionFixture
+    {
+        [OneTimeTearDown]
+        public void AfterAll()
+        {
+            Threaded<Session>
+                .End();
+        }
+    }
 }

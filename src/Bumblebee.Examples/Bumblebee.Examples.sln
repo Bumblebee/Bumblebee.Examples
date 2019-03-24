@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1F3BD1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{40F6DA4F-1C72-460B-AE20-F581BB8B7F58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bumblebee.Examples.PageObjects", "Bumblebee.Examples.PageObjects\Bumblebee.Examples.PageObjects.csproj", "{6297B857-2C6C-4217-93AD-62E8775DF588}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{B4FB11F0-5642-432E-934A-76EC189A28B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4FB11F0-5642-432E-934A-76EC189A28B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4FB11F0-5642-432E-934A-76EC189A28B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6297B857-2C6C-4217-93AD-62E8775DF588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6297B857-2C6C-4217-93AD-62E8775DF588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6297B857-2C6C-4217-93AD-62E8775DF588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6297B857-2C6C-4217-93AD-62E8775DF588}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,5 +43,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{0D8855FE-6C42-4EEB-ACA5-072908B0A917} = {40F6DA4F-1C72-460B-AE20-F581BB8B7F58}
 		{B4FB11F0-5642-432E-934A-76EC189A28B9} = {40F6DA4F-1C72-460B-AE20-F581BB8B7F58}
+		{6297B857-2C6C-4217-93AD-62E8775DF588} = {40F6DA4F-1C72-460B-AE20-F581BB8B7F58}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC0682BA-772F-4098-A30D-F37C3D4474E3}
 	EndGlobalSection
 EndGlobal
