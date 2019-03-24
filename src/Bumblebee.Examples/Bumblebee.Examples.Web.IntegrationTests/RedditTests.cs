@@ -58,14 +58,14 @@ namespace Bumblebee.Examples.Web.IntegrationTests
 		}
 
         [Test]
-		public void given_logged_out_when_at_front_page_then_posts_should_contain_funny_items()
+		public void given_logged_out_when_at_front_page_then_posts_should_contain_todayilearned_items()
         {
 			var posts = Threaded<Session>
 				.CurrentBlock<LoggedOutPage>()
                 .VerifyThat(page => page
 			        .Posts.Any(post =>
-                    post.Subreddit.Text.Contains("funny"))
-                    .Should().BeTrue("there should be at least one funny item on the front page"));
+                    post.Subreddit.Text.Contains("todayilearned"))
+                    .Should().BeTrue("there should be at least one todayilearned item on the front page"));
         }
 
 		[Test]
